@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enterprise Web App</title>
+</head>
+<body>
+    <h1>Welcome to Enterprise Web Application</h1>
+    <h2>Built by Revanth using AWS DevOps</h2>
+    <p>Deployed using CI/CD Pipeline</p>
+</body>
+</html>
