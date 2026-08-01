@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Starting deployment..."
+
+sudo cp -r /tmp/app/* /var/www/html/
+
+sudo systemctl restart httpd
+
+echo "Deployment completed successfully!"
