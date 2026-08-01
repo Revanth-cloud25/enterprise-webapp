@@ -17,14 +17,16 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                sh '''
-                scp -o StrictHostKeyChecking=no index.html ec2-user@10.0.11.85:/tmp/index.html
+    steps {
+        sh '''
+        scp -r -o StrictHostKeyChecking=no app ec2-user@10.0.11.85:/tmp/
 
-                ssh -o StrictHostKeyChecking=no ec2-user@10.0.11.85 "sudo mv /tmp/index.html /var/www/html/index.html && sudo systemctl restart httpd"
-                '''
-            }
-        }
+        scp -o StrictHostKeyChecking=no scripts/deploy.sh ec2-user@10.0.11.85:/tmp/
 
+        ssh -o StrictHostKeyChecking=no ec2-user@10.0.11.85 "
+            chmod +x /tmp/deploy.sh
+            sudo bash /tmp/deploy.sh
+        "
+        '''
     }
 }
