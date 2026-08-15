@@ -1,0 +1,5 @@
+#!/bin/bash
+
+systemctl is-active httpd
+
+curl -I http://localhost
